@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Check if user is logged in
+        window.onload = function() {
+            const user = sessionStorage.getItem('user');
+            if (!user) {
+                window.location.href = 'index.html';
+            } else {
+                document.body.classList.add('dashboard');
+                document.body.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body class="dashboard">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2>Student Portal</h2>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active" data-page="dashboard">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+            <a href="#" class="menu-item" data-page="profile">
+                <i class="fas fa-user"></i>
+                Profile
+            </a>
+            <a href="#" class="menu-item" data-page="courses">
+                <i class="fas fa-book"></i>
+                My Courses
+            </a>
+            <a href="#" class="menu-item" data-page="assignments">
+                <i class="fas fa-tasks"></i>
+                Assignments
+            </a>
+            <a href="#" class="menu-item" data-page="quiz">
+                <i class="fas fa-question-circle"></i>
+                Quiz
+            </a>
+            <div class="menu-divider"></div>
+            <a href="#" class="menu-item" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Page -->
+        <div class="page" id="dashboard-page">
+            <div class="dashboard-header">
+                <div class="header-content">
+                    <h1>Welcome Shoaib Khan!</h1>
+                    <p>Here's an overview of your academic progress</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Current Courses</h3>
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>You are enrolled in 4 courses</p>
+                        <div class="card-stats">
+                            <div class="stat">
+                                <span class="stat-value">75%</span>
+                                <span class="stat-label">Average</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pending Assignments</h3>
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>3 assignments due this week</p>
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <span>Web Development</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <span>Data Structures</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Upcoming Quizzes</h3>
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>2 quizzes scheduled</p>
+                        <div class="quiz-list">
+                            <div class="quiz-item">
+                                <div class="quiz-info">
+                                    <h4>Web Development</h4>
+                                    <p>Tomorrow, 10:00 AM</p>
+                                </div>
+                                <span class="badge">30 min</span>
+                            </div>
+                            <div class="quiz-item">
+                                <div class="quiz-info">
+                                    <h4>Data Structures</h4>
+                                    <p>Next Week, 2:00 PM</p>
+                                </div>
+                                <span class="badge">40 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div class="page" id="profile-page" style="display: none;">
+            <div class="dashboard-header">
+                <h1>Profile</h1>
+                <button class="btn-edit-profile">
+                    <i class="fas fa-edit"></i>
+                    Edit Profile
+                </button>
+            </div>
+            <div class="profile-container">
+                <div class="card profile-card">
+                    <div class="profile-header">
+                        <div class="profile-image-container">
+                            <img src="./WhatsApp Image 2025-05-10 at 11.57.43 PM.jpeg" alt="Profile Picture" class="profile-picture">
+                            <button class="btn-change-photo">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h2>John Doe</h2>
+                        <p>Computer Science Student</p>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="detail-content">
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">shoaibnaaz333@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="detail-content">
+                                <span class="detail-label">Phone</span>
+                                <span class="detail-value">0341-1664464</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="detail-content">
+                                <span class="detail-label">Education</span>
+                                <span class="detail-value">BSCS</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="detail-content">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Pakistan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Page -->
+        <div class="page" id="courses-page" style="display: none;">
+            <div class="dashboard-header">
+                <h1>My Courses</h1>
+                <div class="course-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">In Progress</button>
+                    <button class="filter-btn">Completed</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card course-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Web Development</h3>
+                        <span class="badge">In Progress</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="course-info">
+                            <div class="course-progress">
+                                <div class="progress-circle" data-progress="75">
+                                    <span class="progress-text">75%</span>
+                                </div>
+                            </div>
+                            <div class="course-details">
+                                <p>HTML, CSS, JavaScript</p>
+                                <div class="course-stats">
+                                    <span><i class="fas fa-clock"></i> 12 weeks</span>
+                                    <span><i class="fas fa-book"></i> 24 lessons</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-continue">Continue Learning</button>
+                    </div>
+                </div>
+                <div class="card course-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Structures</h3>
+                        <span class="badge">In Progress</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="course-info">
+                            <div class="course-progress">
+                                <div class="progress-circle" data-progress="60">
+                                    <span class="progress-text">60%</span>
+                                </div>
+                            </div>
+                            <div class="course-details">
+                                <p>Algorithms & Data Structures</p>
+                                <div class="course-stats">
+                                    <span><i class="fas fa-clock"></i> 16 weeks</span>
+                                    <span><i class="fas fa-book"></i> 32 lessons</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-continue">Continue Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignments Page -->
+        <div class="page" id="assignments-page" style="display: none;">
+            <div class="dashboard-header">
+                <h1>Assignments</h1>
+                <div class="assignment-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Pending</button>
+                    <button class="filter-btn">Submitted</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card assignment-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Web Development Project</h3>
+                        <span class="badge">Due in 3 days</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="assignment-description">Create a responsive website using HTML, CSS, and JavaScript</p>
+                        <div class="assignment-details">
+                            <div class="detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Due: March 15, 2024</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-file"></i>
+                                <span>Format: ZIP</span>
+                            </div>
+                        </div>
+                        <div class="assignment-actions">
+                            <button class="btn-submit">Submit Assignment</button>
+                            <button class="btn-download">Download Files</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card assignment-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Structures Assignment</h3>
+                        <span class="badge">Due in 5 days</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="assignment-description">Implement Binary Search Tree operations</p>
+                        <div class="assignment-details">
+                            <div class="detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>Due: March 17, 2024</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-file"></i>
+                                <span>Format: PDF</span>
+                            </div>
+                        </div>
+                        <div class="assignment-actions">
+                            <button class="btn-submit">Submit Assignment</button>
+                            <button class="btn-download">Download Files</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div class="page" id="quiz-page" style="display: none;">
+            <div class="dashboard-header">
+                <h1>Quizzes</h1>
+                <div class="quiz-filters">
+                    <button class="filter-btn active">Upcoming</button>
+                    <button class="filter-btn">Completed</button>
+                    <button class="filter-btn">Results</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card quiz-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Web Development Quiz</h3>
+                        <span class="badge">Scheduled</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="quiz-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Tomorrow, 10:00 AM</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 30 minutes</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>20 Questions</span>
+                            </div>
+                        </div>
+                        <button class="btn-start-quiz">Start Quiz</button>
+                    </div>
+                </div>
+                <div class="card quiz-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Structures Quiz</h3>
+                        <span class="badge">Scheduled</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="quiz-info">
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Next Week, 2:00 PM</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 40 minutes</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>25 Questions</span>
+                            </div>
+                        </div>
+                        <button class="btn-start-quiz">Start Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+    <script src="script.js"></script>
+</body>
+</html> 

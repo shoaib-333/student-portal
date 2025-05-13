@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>Student Portal</h1>
+                <p>Welcome back! Please login to your account.</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <span class="focus-border"></span>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="focus-border"></span>
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span class="btn-text">Login</span>
+                    <div class="spinner"></div>
+                </button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="notification" id="notification"></div>
+    <script src="script.js"></script>
+</body>
+</html> 
